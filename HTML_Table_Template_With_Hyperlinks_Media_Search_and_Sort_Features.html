@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+
+<!-- 
+
+Notes:
+
+For European Languages, Please set the below charset value, in the line above
+
+<meta name="viewport" content="width=device-width, initial-scale=1" charset="ISO-8859-1">
+
+For other language charset value, please refer: 
+
+1. https://i.imgur.com/aeefCNq.png
+2. https://i.imgur.com/viqmstX.png
+
+-->
+
+<title>HTML Table With Hyperlinks, Media, Search and Sort Features</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- http://www.kryogenix.org/code/browser/sorttable/sorttable.js -->
+
+<!-- Sorting done by script below -->
+
+<script src="https://cdn.jsdelivr.net/gh/linuxguist/sorttable@main/sorttable.js"></script>
+
+<!-- Searching done by script below -->
+
+<script>
+function myFunction(){
+  // Declare variables 
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who do not match the search query
+  for (i = 1; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td") ; 
+    for(j=0 ; j<td.length ; j++)
+    {
+      var tdata = td[j] ;
+      if (tdata) {
+        if (tdata.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+          break ; 
+        } else {
+          tr[i].style.display = "none";
+        }
+      } 
+    }
+  }
+}
+</script>
+
+<style type="text/css">
+
+table, th, td {
+border: 1px solid black;  // changing-colors
+// word-wrap: break-word;
+}
+
+// tr:first-child {
+//  font-weight: bold;
+// }
+
+tr:nth-child(even) {background: springgreen}  // changing-colors
+tr:nth-child(odd) {background: springgreen;}   // changing-colors
+
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url("https://i.imgur.com/b6QBPnO.png");
+  background-position: left center;
+  background-repeat: no-repeat;
+  width: 94%;
+  font-size: 16px;
+  padding: 8px 20px 8px 40px;
+  border:2px solid Tomato;  // changing-colors
+  margin-bottom: 18px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  border: 1px solid #ddd;  // changing-colors
+  width: 100%;
+  margin-top: 18px;
+  // Remove the // in front of the below two lines, to get fixed-width
+  // table-layout: fixed;
+  // word-wrap: break-word;
+  // font-size: 18px;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;  // changing-colors
+}
+
+#myTable tr:first-child:hover, #myTable tr:hover {
+  background-color: aqua;    // changing-colors
+}
+
+// #myTable tr:first-child {
+//  background-color: DarkKhaki;    // changing-colors
+//  font-weight: bold;
+// }
+
+#myTable th {
+  background-color: khaki;    // changing-colors
+}
+
+pre {
+  display: block;
+  font-family: verdana, Consolas,"courier new";
+  color: white; 
+  background-color: dodgerblue;
+  // padding: 10px;
+  // font-size: 105%;
+  white-space: pre;
+  // margin: 1em 0;
+  border:1px solid #99cc44; 
+  border-left:10px solid #99cc44;  
+  -webkit-border-radius: 25px; 
+  border-radius: 25px;
+  word-wrap: normal;
+  // overflow: scroll;
+  overflow: auto;
+  width: 100%;
+  max-height: 200px;
+}
+
+* {
+ font-family: verdana, monospace, 'Open Sans', Helvetica, sans-serif;
+ font-size: 16px;
+}
+
+img {
+    // max-width: 100%;
+    // height: auto;
+    }
+
+iframe, object, embed{max-width: 100%;}
+
+.ANCHORS{
+       margin-bottom: 80px;
+       display:inline-block;
+      }
+
+i.fa {
+    // vertical-align: middle;
+    // transform: scale(0.5,1);   
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // max-width: 10px;
+  // height: 200px;
+  // border: 2px solid salmon;
+     padding: 0px;
+}    
+
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 */
+  padding-top: 25px;
+  height: 0;
+}
+
+.videoWrapper>iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+</style>
+</head>
+<body>
+<h2 style="text-align:center;background-color:DodgerBlue;color:White;padding:8px;">HTML Table With Hyperlinks, Media, Search and Sort Features</h2>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search in all Fields...." title="Type in a Search String" autofocus="autofocus">
+<table id="myTable" class="sortable">
+	<tr>
+		<th>Name</th>
+		<th>Profile Download</th>
+		<th>Toll Free Number</th>
+		<th>Toll Free Number Linked</th>
+		<th>Web Address</th>
+		<th>Web Address Linked</th>
+		<th>Photo / Image</th>
+		<th>Photo / Image Embed</th>
+		<th>Photo / Image Embed and Linked</th>
+		<th>Email</th>
+		<th>Email Linked</th>
+		<th>Single Line Pre Block</th>		
+		<th>Multiple Line Pre Block</th>		
+		<th>List</th>		
+		<th>List of all References</th>		
+		<th>Audio</th>		
+		<th>Video</th>		
+		<th>Embed</th>		
+		<th>Maps</th>		
+	</tr>
+
+	<tr>
+		<td>Paul Job</td>
+		<td><a href='https://www.africau.edu/images/default/sample.pdf' target='_blank' rel='noopener noreferrer'>Profile Download</a></td>
+		<td>8007686040</td>
+		<td><a href='tel:8007686040' target='_blank' rel='noopener noreferrer'>8007686040</a></td>
+		<td>good-sam.com</td>
+		<td><a href='http://good-sam.com' target='_blank' rel='noopener noreferrer'>Home Page</a></td>
+		<td>team1.jpg</td>
+		<td><img src='https://i.imgur.com/jK4CmjU.jpg' alt='' width='150' height='150' style='border:5px solid black'></td>
+		<td><a href='https://i.imgur.com/jK4CmjU.jpg' alt='' target='_blank'> <img src='https://i.imgur.com/jK4CmjU.jpg' alt='' width='150' height='150' style='border:5px solid black'></a></td>
+		<td>test@test.com</td>
+		<td><a href='mailto:test@test.com' target='_blank' rel='noopener noreferrer'>Send email</a></td>
+
+		<td><pre>awk 'length($0)&gt;80{print FNR,$0}' file.txt</pre></td>
+
+		<td><pre>#!/usr/bin/gawk -f
+BEGIN {
+if (ARGC &lt; 2) { print "Usage: wwwawk  file.html"; exit 0 }
+  Concnt = 1;
+        while (1) {
+        RS = ORS = "\r\n";
+        HttpService = "/inet/tcp/8080/0/0";
+        getline Dat &lt; ARGV[1];
+        Datlen = length(Dat) + length(ORS);
+        while (HttpService |&amp; getline ){
+    if (ERRNO) { print "Connection error: " ERRNO; exit 1}
+                print "client: " $0;
+                if ( length($0) &lt; 1 ) break;
+        }
+        print "HTTP/1.1 200 OK"             |&amp; HttpService;
+        print "Content-Type: text/html"     |&amp; HttpService;
+        print "Server: wwwawk/1.0"          |&amp; HttpService;
+        print "Connection: close"           |&amp; HttpService;
+        print "Content-Length: " Datlen ORS |&amp; HttpService;
+        print Dat                           |&amp; HttpService;
+        close(HttpService);
+        print "OK: served file " ARGV[1] ", count " Concnt;
+        Concnt++;
+      }
+} </pre></td>
+
+		<td><ul class="fa-ul">
+
+<li><i class="fa-li fa fa-check-square"></i>
+The commandline option -F sets the field separator. The default is space.
+</li>
+
+<br>
+
+<li><i class="fa-li fa fa-check-square"></i>
+$0 the entire line without the newline at the end
+</li>
+
+</ul></td>
+
+<td><ul class="fa-ul">
+
+<li><i class="fa-li fa fa-check-square"></i>The GAWK manual: <a href="http://www.gnu.org/software/gawk/manual/gawk.html" target='_blank' rel='noopener noreferrer'>GAWK Manual</a>
+</li>
+
+<br>
+
+<li><i class="fa-li fa fa-check-square"></i>AWK wikibooks: <a href="http://en.wikibooks.org/wiki/AWK" target='_blank' rel='noopener noreferrer'>AWK Wikibooks</a>
+</li>
+
+</ul></td>
+
+<td><audio controls>
+  <source src="https://download.samplelib.com/mp3/sample-6s.mp3" type="audio/ogg">
+Your browser does not support the audio element.
+</audio></td>
+
+<td><video width="200" height="200" controls>
+  <source src="https://download.samplelib.com/mp4/sample-10s.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+</td>
+
+<!--
+<td><div class="videoWrapper"><iframe width="560" height="349" src="http://www.youtube.com/embed/noPuC6arhvk?wmode=transparent" frameborder="0" allowfullscreen wmode="transparent"></iframe></div>
+</td>
+-->
+
+<td> <object data='http://www.youtube.com/embed/noPuC6arhvk?wmode=transparent' 
+        width='200' height='200'>
+    </object></td>
+
+<!--
+<td><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d37995.65748333395!2d-2.273568166412784!3d53.473310471916975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487bae6c05743d3d%3A0xf82fddd1e49fc0a1!2sThe+Lowry!5e0!3m2!1sen!2suk!4v1518171785211" width="200" height="200" frameborder="0" style="border:0" allowfullscreen>
+</iframe></td>
+-->
+
+<td><object data="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d37995.65748333395!2d-2.273568166412784!3d53.473310471916975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487bae6c05743d3d%3A0xf82fddd1e49fc0a1!2sThe+Lowry!5e0!3m2!1sen!2suk!4v1518171785211" width="200" height="200" frameborder="0" style="border:0" allowfullscreen></object></td>
+
+	</tr>
+	
+	<tr>
+		<td>Lucas Ribeiro</td>
+		<td><a href='https://www.africau.edu/images/default/sample.pdf' target='_blank' rel='noopener noreferrer'>Profile Download</a></td>
+		<td>8007686040</td>
+		<td><a href='tel:8007686040' target='_blank' rel='noopener noreferrer'>8007686040</a></td>
+		<td>good-sam.com</td>
+		<td><a href='http://good-sam.com' target='_blank' rel='noopener noreferrer'>Home Page</a></td>
+		<td>team1.jpg</td>
+		<td><img src='https://i.imgur.com/jK4CmjU.jpg' alt='' width='150' height='150' style='border:5px solid black'></td>
+		<td><a href='https://i.imgur.com/jK4CmjU.jpg' alt='' target='_blank'> <img src='https://i.imgur.com/jK4CmjU.jpg' alt='' width='150' height='150' style='border:5px solid black'></a></td>
+		<td>test@test.com</td>
+		<td><a href='mailto:test@test.com' target='_blank' rel='noopener noreferrer'>Send email</a></td>
+
+		<td><pre>awk 'length($0)&gt;80{print FNR,$0}' file.txt</pre></td>
+
+		<td><pre>#!/usr/bin/gawk -f
+BEGIN {
+if (ARGC &lt; 2) { print "Usage: wwwawk  file.html"; exit 0 }
+  Concnt = 1;
+        while (1) {
+        RS = ORS = "\r\n";
+        HttpService = "/inet/tcp/8080/0/0";
+        getline Dat &lt; ARGV[1];
+        Datlen = length(Dat) + length(ORS);
+        while (HttpService |&amp; getline ){
+    if (ERRNO) { print "Connection error: " ERRNO; exit 1}
+                print "client: " $0;
+                if ( length($0) &lt; 1 ) break;
+        }
+        print "HTTP/1.1 200 OK"             |&amp; HttpService;
+        print "Content-Type: text/html"     |&amp; HttpService;
+        print "Server: wwwawk/1.0"          |&amp; HttpService;
+        print "Connection: close"           |&amp; HttpService;
+        print "Content-Length: " Datlen ORS |&amp; HttpService;
+        print Dat                           |&amp; HttpService;
+        close(HttpService);
+        print "OK: served file " ARGV[1] ", count " Concnt;
+        Concnt++;
+      }
+} </pre></td>
+
+		<td><ul class="fa-ul">
+
+<li><i class="fa-li fa fa-check-square"></i>
+The commandline option -F sets the field separator. The default is space.
+</li>
+
+<br>
+
+<li><i class="fa-li fa fa-check-square"></i>
+$0 the entire line without the newline at the end
+</li>
+
+</ul></td>
+
+<td><ul class="fa-ul">
+
+<li><i class="fa-li fa fa-check-square"></i>The GAWK manual: <a href="http://www.gnu.org/software/gawk/manual/gawk.html" target='_blank' rel='noopener noreferrer'>GAWK Manual</a>
+</li>
+
+<br>
+
+<li><i class="fa-li fa fa-check-square"></i>AWK wikibooks: <a href="http://en.wikibooks.org/wiki/AWK" target='_blank' rel='noopener noreferrer'>AWK Wikibooks</a>
+</li>
+
+</ul></td>
+
+<td><audio controls>
+  <source src="https://download.samplelib.com/mp3/sample-6s.mp3" type="audio/ogg">
+Your browser does not support the audio element.
+</audio></td>
+
+<td><video width="200" height="200" controls>
+  <source src="https://download.samplelib.com/mp4/sample-10s.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+</td>
+
+<!--
+<td><div class="videoWrapper"><iframe width="560" height="349" src="http://www.youtube.com/embed/noPuC6arhvk?wmode=transparent" frameborder="0" allowfullscreen wmode="transparent"></iframe></div>
+</td>
+-->
+
+<td> <object data='http://www.youtube.com/embed/noPuC6arhvk?wmode=transparent' 
+        width='200' height='200'>
+    </object></td>
+
+<!--
+<td><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d37995.65748333395!2d-2.273568166412784!3d53.473310471916975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487bae6c05743d3d%3A0xf82fddd1e49fc0a1!2sThe+Lowry!5e0!3m2!1sen!2suk!4v1518171785211" width="200" height="200" frameborder="0" style="border:0" allowfullscreen>
+</iframe></td>
+-->
+
+<td><object data="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d37995.65748333395!2d-2.273568166412784!3d53.473310471916975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487bae6c05743d3d%3A0xf82fddd1e49fc0a1!2sThe+Lowry!5e0!3m2!1sen!2suk!4v1518171785211" width="200" height="200" frameborder="0" style="border:0" allowfullscreen></object></td>
+
+	</tr>
+
+</table></body></html>
