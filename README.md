@@ -1,7 +1,7 @@
 # sorttable
 sorttable.js file in this repository can be used by anyone to sort their html tables dynamically
 
-Just view the raw file for its instructions and use the src value given below
+Just view the sorttable.js file for its instructions and use the src value given below
 
 Question From Abhay:
 
