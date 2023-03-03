@@ -1,7 +1,9 @@
 # sorttable
 sorttable.js file in this project repository can be used by anyone to sort their html tables dynamically. 
 
-A complete working example html table file is also added now for learning and testing puposes here. 
+A complete working example of a html table file is also added now for learning and testing puposes here. 
+
+Screenshot of this example is given below.
 
 ** Instructions: **
 
@@ -28,3 +30,4 @@ Thanks to Stuart Langridge and many others for contributing the original code.
 
 I thank the following forum article for inspiring me to develop this project idea: https://www.sololearn.com/Discuss/2497295/how-to-host-my-js-files-online-for-private-use-yourjavascript-com-is-not-working
 
+![HTML Table With Features](https://i.imgur.com/l3LiyZu.png "HTML Table With Features")
