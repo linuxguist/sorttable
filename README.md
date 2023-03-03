@@ -3,7 +3,7 @@ sorttable.js file in this project repository can be used by anyone to sort their
 
 A complete working example html table file is also added now for learning and testing puposes here. 
 
-** Instructions: **
+*** Instructions: ***
 
   1. Download this repository by clicking on the Code Button above and choose "Download ZIP" option.
   2. Extract the ZIP file and then copy the sorttable.js file to your HTML Table file folder.
